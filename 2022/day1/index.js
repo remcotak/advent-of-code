@@ -3,10 +3,8 @@ const getData = require('../../utils/getData');
 const countTotalNumberOfCalories = (meals) =>
   meals.reduce((accumulator, currentValue) => accumulator + currentValue);
 
-const initTest = async () => {
-  // const dataFile = "./2022/day1/data_test.txt";
-  const file = './2022/day1/data.txt';
-  const data = await getData(file);
+const init = async () => {
+  const data = await getData(__dirname);
 
   const caloriesPerElf = data.map((elfMeals) =>
     countTotalNumberOfCalories(elfMeals)
@@ -27,4 +25,4 @@ const initTest = async () => {
   console.log('Answer 2: ', totalNumberOfCalories);
 };
 
-initTest();
+module.exports = init;

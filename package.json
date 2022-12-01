@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node 2022/day1"
+    "test": "node index.js --test",
+    "start": "node index.js"
   },
   "author": "Remco Tak",
   "license": "ISC",
