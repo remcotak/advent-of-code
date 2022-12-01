@@ -1,0 +1,25 @@
+{
+  // These are all the auto-save configs
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.validate": ["javascript", "javascriptreact", "vue"],
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  // turn it off for JS, we will do this via eslint
+  "[javascript]": {
+    // Optional BUT IMPORTANT:
+    // If you have the prettier extension enabled for other languages like CSS and HTML,
+    // turn it off for JS since we are doing it through Eslint already
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
+  },
+  // show eslint icon at bottom toolbar
+  "eslint.alwaysShowStatus": true,
+  // tell the ESLint plugin to run on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
+}
