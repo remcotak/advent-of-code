@@ -4,6 +4,7 @@ const date = now.getDate();
 
 async function init() {
   try {
+    console.log(`./${year}/day${date}/index.js`);
     // eslint-disable-next-line import/no-dynamic-require, global-require
     const puzzle = require(`./${year}/day${date}/index.js`);
     puzzle();

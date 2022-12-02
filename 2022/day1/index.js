@@ -1,10 +1,20 @@
 const getData = require('../../utils/getData');
 
+const parseData = (rawData) =>
+  rawData.split('\n\n').map((x) =>
+    x
+      .trim()
+      .replace(/[\n ,]+/g, ',')
+      .split(',')
+      .map((y) => parseInt(y))
+  );
+
 const countTotalNumberOfCalories = (meals) =>
   meals.reduce((accumulator, currentValue) => accumulator + currentValue);
 
 const init = async () => {
-  const data = await getData(__dirname);
+  const rawData = await getData(__dirname);
+  const data = parseData(rawData);
 
   const caloriesPerElf = data.map((elfMeals) =>
     countTotalNumberOfCalories(elfMeals)
