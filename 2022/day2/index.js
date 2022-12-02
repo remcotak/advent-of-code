@@ -52,14 +52,13 @@ const init = async () => {
     return roundScore + handScore;
   };
 
-  let totalScoreAnswerOne = 0;
-  data.forEach((round) => {
-    totalScoreAnswerOne += calcRoundScore(round);
-  });
+  const totalScoreAnswerOne = data.reduce(
+    (acc, round) => acc + calcRoundScore(round),
+    0
+  );
   console.log('Answer 1:', totalScoreAnswerOne);
 
-  let totalScoreAnswerTwo = 0;
-  data.forEach((round) => {
+  const totalScoreAnswerTwo = data.reduce((acc, round) => {
     let newRound = [];
     // Should lose
     if (round[1] === 'X') {
@@ -73,9 +72,8 @@ const init = async () => {
     if (round[1] === 'Z') {
       newRound = [round[0], wins[round[0]]];
     }
-
-    totalScoreAnswerTwo += calcRoundScore(newRound);
-  });
+    return acc + calcRoundScore(newRound);
+  }, 0);
   console.log('Answer 2:', totalScoreAnswerTwo);
 };
 
